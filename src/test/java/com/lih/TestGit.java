@@ -18,5 +18,7 @@ public class TestGit {
         System.out.println(b);
         int c = 300;
         System.out.println(c);
+
+        System.out.println("哈哈哈");
     }
 }
