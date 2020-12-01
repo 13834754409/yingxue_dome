@@ -25,7 +25,6 @@ public class TestGit {
 
         System.out.println("同一段代码A");
         //yanww
-        System.out.println("侯杰是傻逼");
         //李辉
         System.out.println("侯杰哈哈");
 
@@ -36,6 +35,5 @@ public class TestGit {
         int i = 2147483647;
         i = i + 3;
         System.out.println(i);
-        System.out.println("侯杰是傻逼！！！！！");
     }
 }
