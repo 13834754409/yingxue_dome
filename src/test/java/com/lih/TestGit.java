@@ -16,5 +16,7 @@ public class TestGit {
         System.out.println(a);
         int b = 200;
         System.out.println(b);
+        int c = 300;
+        System.out.println(c);
     }
 }
