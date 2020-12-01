@@ -22,5 +22,7 @@ public class TestGit {
         System.out.println("哈哈哈");
 
         System.out.println("同一段代码B");
+
+        System.out.println("同一段代码A");
     }
 }
