@@ -37,6 +37,6 @@ public class TestGit {
         System.out.println(i);
         //lihui
         System.out.println("哈哈哈哈哈哈哈");
-        System.out.println("菜鸡是傻逼");
+        System.out.println("YWW是傻逼");
     }
 }
