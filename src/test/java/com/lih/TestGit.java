@@ -35,6 +35,8 @@ public class TestGit {
         int i = 2147483647;
         i = i + 3;
         System.out.println(i);
+        //lihui
+        System.out.println("哈哈哈哈哈哈哈");
         System.out.println("菜鸡是傻逼");
     }
 }
