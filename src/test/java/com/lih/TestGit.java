@@ -28,4 +28,12 @@ public class TestGit {
         System.out.println("侯杰是傻逼");
 
     }
+
+    @Test
+    void testModifySameFile(){
+        int i = 2147483647;
+        i = i + 3;
+        System.out.println(i);
+        System.out.println("侯杰是傻逼！！！！！");
+    }
 }
