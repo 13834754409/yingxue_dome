@@ -8,6 +8,7 @@ class YingxueDomeApplicationTests {
 
     @Test
     void contextLoads() {
+        System.out.println("哈哈哈哈");
     }
 
 }
