@@ -3,6 +3,7 @@ package com.lih.conf;
 import com.lih.realm.MyRealm;
 import com.sun.org.apache.regexp.internal.RE;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
+import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.CookieRememberMeManager;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
@@ -42,18 +43,26 @@ public class MyConf {
         //配置退出过滤器  具体的退出代码Shiro已经实现
         map.put("/logout", "logout");
         //记住我管理器
+        map.put("/**","user");
+        //角色过滤器
+        //map.put("/user/add","roles[userA]");
+        //权限过滤器
+        map.put("/user/add","perms[user:add]");
+
 
         //配置过滤器链(多个过滤器)
         factoryBean.setFilterChainDefinitionMap(map);
         //指定登陆页面的位置
         factoryBean.setLoginUrl("/user/login.jsp");
+        //没有权限跳转的页面
+        factoryBean.setUnauthorizedUrl("main/unauthorized.jsp");
 
         return factoryBean;
     }
 
     //将安全管理器对象交给Spring工厂管理
     @Bean
-    public DefaultWebSecurityManager getDefaultWebSecurityManager(MyRealm myRealm, DefaultWebSessionManager defaultWebSessionManager, CookieRememberMeManager rememberMeManager) {
+    public DefaultWebSecurityManager getDefaultWebSecurityManager(MyRealm myRealm, DefaultWebSessionManager defaultWebSessionManager, CookieRememberMeManager rememberMeManager,EhCacheManager ehCacheManager) {
         //创建安全管理器对象
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         //将自定义Realm交给安全管理器
@@ -62,6 +71,9 @@ public class MyConf {
         securityManager.setSessionManager(defaultWebSessionManager);
         //将记住我管理器交给安全管理器
         securityManager.setRememberMeManager(rememberMeManager);
+        //将缓存管理器交给安全管理器
+        securityManager.setCacheManager(ehCacheManager);
+
         return securityManager;
     }
 
@@ -118,6 +130,11 @@ public class MyConf {
         simpleCookie.setMaxAge(604800);//7天
 
         return simpleCookie;
+    }
+    @Bean
+    public EhCacheManager getEhCacheManager(){
+        //创建缓存管理器
+        return new EhCacheManager();
     }
 
 }

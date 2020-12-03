@@ -51,4 +51,9 @@ public class UserController {
             return "redirect:/user/login.jsp";
         }
     }
+    @RequestMapping("add")
+    public String add(){
+        System.out.println("=====");
+        return "redirect:/main/query.jsp";
+    }
 }
